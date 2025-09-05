@@ -1,10 +1,48 @@
 
-# OpenFOAM Case Builder (CSV → cases)
+# OpenFOAM Bath Case Generator (CSV → cases)
+
+# Significance of foamBatchGen
+
+In **computational fluid dynamics (CFD)** and particularly in **OpenFOAM workflows**, researchers and engineers often need to run many simulations to explore parameter spaces. 
+Examples include changing:
+- Reynolds numbers
+- Fluid properties
+- Time-step sizes
+- Mesh resolutions
+- Physical settings like eccentricity in wellbore geometries
+
+Traditionally, this involves **cloning a reference case** and manually editing multiple files:
+- `system/controlDict`
+- `constant/transportProperties`
+- `0/U`
+- SLURM job scripts
+
+This process is **slow and error-prone**. A single typo or missed update can invalidate results.
+
+## Why foamCaseBuilder matters
+
+**foamCaseBuilder** automates the process of creating new cases from a **reference case** and a **CSV parameter table**.
+
+- ✅ **Consistency** – every case comes from the same clean baseline.
+- ✅ **Scalability** – one CSV row = one simulation case. From 2 to 200 cases with no extra effort.
+- ✅ **Reproducibility** – the CSV becomes a record of experiment design that can be rerun at any time.
+- ✅ **Flexibility** – `mapping.json` lets you update any OpenFOAM dictionary or SLURM script entries.
+- ✅ **Productivity** – focus on physics and analysis instead of repetitive file edits.
+
+## When to use
+
+- You already have a validated **reference case**.
+- You want to **sweep parameters** systematically (eccentricity, viscosity, densities, time step, etc.).
+- You run on **HPC clusters** where job scripts must reflect the correct settings (`#SBATCH --job-name`, `Ecc`, etc.).
+- You need systematic, traceable simulation studies for a **paper or thesis**.
+
+By automating repetitive edits, **foamBatchGen** accelerates research, reduces human error, and ensures your workflows remain reproducible and scalable.
+
 
 **Files created here:**
 - `foamBatchGen.py` — the generator app
 - `mapping.json` — starter mapping
-- You uploaded: `ExplanatoryCases.csv` — your runs list
+- You uploaded: `Example.csv` — your runs list
 
 ## Quick start
 ```bash
