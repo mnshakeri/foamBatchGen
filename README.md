@@ -9,9 +9,9 @@
 ## Quick start
 ```bash
 chmod +x foamBatchGen.py
-python3 foamBatchGen.py --csv ExplanatoryCases.csv --ref ref --out cases_out --map mapping.json --dry-run --verbose
+python3 foamBatchGen.py --csv Example.csv --ref ref --out cases_out --map mapping.json --dry-run --verbose
 # If everything looks good:
-python3 foamBatchGen.py --csv ExplanatoryCases.csv --ref ref --out cases_out --map mapping.json --overwrite --verbose
+python3 foamBatchGen.py --csv Example.csv --ref ref --out cases_out --map mapping.json --overwrite --verbose
 ```
 
 - The `ref` directory should be your reference OpenFOAM case folder (with `system/`, `constant/`, `0/` etc.).
