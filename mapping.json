@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "Setup",
+      "updates": [
+        {
+          "type": "key",
+          "key": "Re",
+          "param": "Re"
+        },
+        {
+          "type": "key",
+          "key": "Ecc",
+          "param": "Ecc"
+        },
+        {
+          "type": "key",
+          "key": "Beta",
+          "param": "Beta"
+        },
+        {
+          "type": "key",
+          "key": "Bn",
+          "param": "Bn"
+        }
+      ]
+    },
+    {
+      "path": "Run.sh",
+      "updates": [
+        {
+      "type": "regex",
+      "pattern": "(?m)^#SBATCH --job-name=.*$",
+      "replacement": "#SBATCH --job-name={Job}",
+      "params": {"Job": "JobName"}
+    	  },
+        {
+          "type": "regex",
+          "pattern": "(?m)^Ecc=.*$",
+          "replacement": "Ecc={Ecc}",
+          "params": {"Ecc": "Ecc"}
+        }
+      ]
+    }
+  ]
+}
